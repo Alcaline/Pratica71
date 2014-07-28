@@ -1,14 +1,18 @@
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author Guilherme Jacichen <gui_jaci@yahoo.com.br>
  */
 public class Main {
+
     public static void main(String[] args) {
-        ArrayList<Jogador> time = new ArrayList<>();
-                
+        List<Jogador> time = new ArrayList<>();
+        
+        Jogador achado;
+        
         time.add(new Jogador(2, "Fulano"));
         time.add(new Jogador(7, "Beltrano"));
         time.add(new Jogador(14, "Ciclano"));
@@ -27,6 +31,8 @@ public class Main {
         for(Jogador jog : time)
             System.out.println(jog);
         
-        //System.out.println(Collection.binarySearch(time.toArray(), ));
+        achado = time.get(Collections.binarySearch(time, new Jogador(19, "Mendigo"), new JogadorComparator(true,false)));
+        
+        System.out.println(achado);
     }
 }
